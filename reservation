@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>予約システム</title>
+
+<style>
+body{
+    font-family: Arial,sans-serif;
+    background:#f5f5f5;
+    margin:0;
+}
+
+.container{
+    max-width:500px;
+    margin:30px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+h1{
+    text-align:center;
+}
+
+label{
+    font-weight:bold;
+    display:block;
+    margin-top:15px;
+}
+
+select,input,button{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    font-size:16px;
+}
+
+button{
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+#result{
+    margin-top:20px;
+    padding:10px;
+    background:#eef;
+    border-radius:5px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>予約システム</h1>
+
+<label>担当者</label>
+
+<select id="staff">
+<option>佐藤拓海</option>
+<option>君島健太</option>
+<option>清島れいや</option>
+<option>峯尾孝之</option>
+<option>山口翔</option>
+<option>森田明星</option>
+</select>
+
+<label>日付</label>
+
+<input type="date" id="date">
+
+<label>時間</label>
+
+<select id="time">
+<option>09:00</option>
+<option>10:00</option>
+<option>11:00</option>
+<option>12:00</option>
+<option>13:00</option>
+<option>14:00</option>
+<option>15:00</option>
+<option>16:00</option>
+<option>17:00</option>
+<option>18:00</option>
+</select>
+
+<label>予約者名</label>
+
+<input id="name" placeholder="名前を入力">
+
+<br><br>
+
+<button onclick="reserve()">予約する</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function reserve(){
+
+const staff=document.getElementById("staff").value;
+const date=document.getElementById("date").value;
+const time=document.getElementById("time").value;
+const name=document.getElementById("name").value;
+
+if(name==="" || date===""){
+alert("入力してください");
+return;
+}
+
+document.getElementById("result").innerHTML=
+`
+<h3>予約完了！</h3>
+
+担当者：${staff}<br>
+日付：${date}<br>
+時間：${time}<br>
+予約者：${name}
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
